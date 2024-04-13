@@ -13,8 +13,8 @@ resource "aws_cloudwatch_event_rule" "s3_put_event_rule" {
 
 resource "aws_cloudwatch_event_target" "s3_put_event_log_target" {
   rule      = aws_cloudwatch_event_rule.s3_put_event_rule.name
-  target_id = "s3-trigger-tutorial-target-${random_id.suffix.hex}"
-  arn       = aws_cloudwatch_log_group.s3_put_event_log_group.arn
+  target_id = "cloud-watch-log-target"
+  arn       = aws_cloudwatch_log_group.eventbridge_cloud_watch_target_logs.arn
 }
 
 resource "aws_cloudwatch_event_target" "s3_put_event_ecs_target" {

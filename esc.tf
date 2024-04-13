@@ -19,7 +19,7 @@ resource "aws_ecs_task_definition" "s3_event_handle_task" {
       logConfiguration = {
         logDriver = "awslogs"
         options = {
-          awslogs-group         = "/ecs/s3-event-handle-task"
+          awslogs-group         = aws_cloudwatch_log_group.eventbridge_ecs_task_target_logs.name
           awslogs-region        = "ap-northeast-1"
           awslogs-stream-prefix = "ecs"
         }
